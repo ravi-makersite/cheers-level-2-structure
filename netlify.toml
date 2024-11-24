@@ -1,5 +1,4 @@
 [build]
-    base = "cheers-level-2-structure"
     command = "npm run build"
     publish = "dist/hogwarts-theater/browser/"
 
