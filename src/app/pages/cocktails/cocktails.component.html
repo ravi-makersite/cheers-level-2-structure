@@ -1,0 +1,22 @@
+<main>
+  <section class="header-section">
+    <h5>
+      Filters
+    </h5>
+    <div class="filters-container">
+      <div>
+        Cocktail Name
+      </div>
+      <div class="input-container">
+        <input [(ngModel)]="search">
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="cocktail-container">
+      @for (item of filteredCocktails(); track item.id) {
+        <app-cocktail-data [cockTail]="item"></app-cocktail-data>
+      }
+    </div>
+  </section>
+</main>

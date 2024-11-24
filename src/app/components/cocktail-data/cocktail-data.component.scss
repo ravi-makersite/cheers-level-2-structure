@@ -1,0 +1,36 @@
+
+article{
+  display: flex;
+  width: 430px;
+  cursor: pointer;
+  border: 1px solid black;
+  margin: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  .image{
+    height: 147px;
+    width: 156px;
+  }
+  .data{
+    width: calc(100% - 157px);
+    padding: 12px;
+    padding-top: 0px;
+    h3{
+      display: inline-block;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .header{
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row;
+      align-items: baseline;
+    }
+  }
+
+}
+.icon-star{
+  height: 1.5em;
+  width: 1.5em;
+}

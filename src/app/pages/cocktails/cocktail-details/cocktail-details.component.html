@@ -1,0 +1,50 @@
+<section >
+  <button (click)="location.back()">
+    Back Button
+  </button>
+  @if(cocktailDetails){
+    <div class="details-container">
+      <div>
+        <img [ngSrc]="cocktailDetails.imageUrl" height="300" width="350" priority>
+      </div>
+      <div class="cocktail-details">
+        <div class="name-section">
+          <h3>{{cocktailDetails.name}}</h3>
+          <span class="icon-star left-margin" [favouriteChange]="cocktailDetails"></span>
+        </div>
+        <div class="type-section">
+          <div>
+            Type:
+          </div>
+          <div class="left-margin">
+            <span [alcaholic]="cocktailDetails.isAlcoholic" > </span>
+          </div>
+        </div>
+        <div class="ingredients-section">
+          <div>
+            Ingredients:
+          </div>
+          <div class="left-margin">
+            @for (item of cocktailDetails.ingredients; track item) {
+              <li>{{item }} | &nbsp;</li>
+            }
+          </div>
+        </div>
+        <div class="instructions">
+          <div>
+            Instructions:
+          </div>
+          <div class="left-margin">
+            {{cocktailDetails.instructions}}
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+  @else{
+    <div>
+      Record Not Found
+    </div>
+  }
+
+</section>

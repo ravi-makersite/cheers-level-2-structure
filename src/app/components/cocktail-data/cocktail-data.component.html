@@ -1,0 +1,22 @@
+<article >
+  <div class="image">
+    <img [ngSrc]="cockTail().imageUrl" height="147" width="156" priority>
+  </div>
+  <div class="data">
+    <div class="header">
+      <h3 [routerLink]="['/cocktails/'+cockTail().id]">
+        {{cockTail().name}}
+      </h3>
+       <span class="icon-star" [favouriteChange]="cockTail()"></span>
+    </div>
+
+    <div>
+      <span [alcaholic]="cockTail().isAlcoholic" > </span>
+    </div>
+    <div>
+      @for (item of cockTail().ingredients; track item) {
+        <span>{{item }} | &nbsp;</span>
+      }
+    </div>
+  </div>
+</article>

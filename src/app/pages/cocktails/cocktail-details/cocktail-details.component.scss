@@ -1,0 +1,44 @@
+.icon-star{
+  height: 1.5em;
+  width: 1.5em;
+}
+
+h3{
+  margin-left: 0px;
+}
+
+.section{
+  padding: 0px 25px;
+}
+
+.details-container{
+  display: flex;
+}
+.cocktail-details {
+  padding: 0px 25px;
+}
+
+.ingredients-section{
+  display: flex;
+}
+
+.name-section{
+  display: flex;
+  align-items: center;
+}
+
+.left-margin{
+  margin-left: 5rem;
+}
+
+
+.type-section{
+  display: flex;
+  .left-margin{
+    margin-left: 7rem;
+  }
+}
+
+.instructions{
+  display: flex;
+}

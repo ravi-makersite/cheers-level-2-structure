@@ -1,0 +1,22 @@
+.cocktail-container{
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+}
+
+.header-section{
+  background: lightgray;
+  margin-top: -0.8rem;
+  padding: 13px;
+}
+
+.filters-container{
+  display: flex;
+  margin: 10px;
+  justify-content: start;
+  align-items: baseline;
+}
+
+.input-container{
+  margin-left: 10px;
+}
