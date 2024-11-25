@@ -1,9 +1,11 @@
+import { CocktailDetailsService } from './../../pages/cocktails/cocktail-details/cocktail-details.service';
 import { Cocktail } from './../../pages/cocktails/cocktails.model';
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { BadgeDirective } from '../../directives/badge.directive';
 import { FavouriteChangeDirective } from '../../directives/favourite.directive';
 import { RouterModule } from '@angular/router';
+import { CocktailService } from '../../pages/cocktails/cocktails.service';
 
 @Component({
   selector: 'app-cocktail-data',
@@ -21,7 +23,15 @@ import { RouterModule } from '@angular/router';
 export class CocktailDataComponent {
   cockTail = input.required<Cocktail>();
 
+  isActive = computed(()=>{
+    let favourites = this.cocktailService.favourites();
+    if(this.cocktailService.favourites()?.length){
+      let itemFound = favourites.find(item => item.id == this.cockTail().id);
+      return !!itemFound;
+    }
+    return false;
+  })
 
-  constructor(){}
+  constructor(private cocktailService: CocktailService){}
 
 }

@@ -7,7 +7,7 @@
       <h3 [routerLink]="['/cocktails/'+cockTail().id]">
         {{cockTail().name}}
       </h3>
-       <span class="icon-star" [favouriteChange]="cockTail()"></span>
+       <span class="icon-star" [favouriteChange]="cockTail()" [ngClass]="{'active': isActive()}"></span>
     </div>
 
     <div>

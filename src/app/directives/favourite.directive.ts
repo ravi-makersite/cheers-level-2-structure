@@ -16,7 +16,6 @@ export class FavouriteChangeDirective implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    this.checkFavouriteInitially();
   }
 
   @HostListener('click') onClick(): void {
@@ -29,21 +28,6 @@ export class FavouriteChangeDirective implements OnChanges {
       }
       this.cocktailService.changeFavourite(this.cocktail, this.isActive)
     }
-  }
-
-  checkFavouriteInitially(){
-    if(this.isFavourite()){
-      this.onClick();
-    }
-  }
-
-  isFavourite(){
-    let favourites = this.cocktailService.favourites();
-    if(favourites?.length){
-      let isFound = favourites.find(p => p.id === this.cocktail.id);
-      return !!isFound;
-    }
-    return false;
   }
 
 }

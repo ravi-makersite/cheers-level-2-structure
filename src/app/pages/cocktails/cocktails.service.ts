@@ -37,8 +37,7 @@ export class CocktailService {
     if(!cockTail) return;
     let index = this.favourites().findIndex(addedCocktail => addedCocktail.id == cockTail.id);
     if(index !== -1){
-      let updatedFavouriteList = this.favourites().splice(index, 1);
-      this.favourites.set(updatedFavouriteList);
+      this.favourites().splice(index, 1);
       this.saveFavouriteLocally();
     }
   }

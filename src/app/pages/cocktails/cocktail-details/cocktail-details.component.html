@@ -10,7 +10,7 @@
       <div class="cocktail-details">
         <div class="name-section">
           <h3>{{cocktailDetails.name}}</h3>
-          <span class="icon-star left-margin" [favouriteChange]="cocktailDetails"></span>
+          <span class="icon-star left-margin" [favouriteChange]="cocktailDetails" [ngClass]="{'active': isActive()}"></span>
         </div>
         <div class="type-section">
           <div>

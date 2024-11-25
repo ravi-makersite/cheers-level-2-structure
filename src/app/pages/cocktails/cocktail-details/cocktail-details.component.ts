@@ -1,6 +1,7 @@
+import { CocktailService } from './../cocktails.service';
 import { CocktailDetailsService } from './cocktail-details.service';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, DestroyRef, inject, input } from '@angular/core';
+import { Component, computed, DestroyRef, inject, input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cocktail } from '../cocktails.model';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
@@ -29,7 +30,9 @@ export class CocktailDetailsComponent {
 
   cocktailDetails:Cocktail;
 
-  constructor(private cocktailDetailSerivce:CocktailDetailsService,public location:Location){
+  constructor(private cocktailDetailSerivce:CocktailDetailsService,
+      public location:Location,
+      private cocktailService: CocktailService){
     // this.getCocktailData();
   }
 
@@ -42,4 +45,13 @@ export class CocktailDetailsComponent {
       this.cocktailDetails = val;
     });
   }
+
+  isActive = computed(()=>{
+    let favourites = this.cocktailService.favourites();
+    if(this.cocktailService.favourites()?.length){
+      let itemFound = favourites.find(item => item.id == this.cocktailDetails.id);
+      return !!itemFound;
+    }
+    return false;
+  })
 }
