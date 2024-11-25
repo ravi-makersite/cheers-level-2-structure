@@ -20,7 +20,7 @@ export class FavouriteChangeDirective implements OnChanges {
 
   @HostListener('click') onClick(): void {
     if (this.cocktail) {
-      this.isActive = !this.isActive; // Toggle the state
+      this.isActive = !this.getActive(); // Toggle the state
       if (this.isActive) {
         this.renderer.addClass(this.el.nativeElement, "active");
       } else {
@@ -28,6 +28,15 @@ export class FavouriteChangeDirective implements OnChanges {
       }
       this.cocktailService.changeFavourite(this.cocktail, this.isActive)
     }
+  }
+
+  getActive(){
+    let existingFavourites = this.cocktailService.favourites();
+    if(existingFavourites?.length){
+      let alreadyExist = existingFavourites.find(item => item.id == this.cocktail.id);
+      return !!alreadyExist;
+    }
+    return false;
   }
 
 }
